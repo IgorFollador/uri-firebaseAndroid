@@ -20,11 +20,12 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        padding: EdgeInsets.all(16),
         child: Center(
             child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.all(5),
+              padding: EdgeInsets.all(16),
               child: ElevatedButton(
                 onPressed: _logout,
                 child: Text("Logout"),
