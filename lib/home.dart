@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -8,10 +10,29 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  _logout() async {
+    FirebaseAuth auth = FirebaseAuth.instance;
+    auth.signOut();
+    Navigator.pop(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
+      body: Container(
+        child: Center(
+            child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.all(5),
+              child: ElevatedButton(
+                onPressed: _logout,
+                child: Text("Logout"),
+              ),
+            )
+          ],
+        )),
+      ),
     );
   }
 }
